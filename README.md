@@ -23,7 +23,7 @@ Processing a payment online involves multiple steps and entities:
 ## Solution
 
 - Have used asp.net core 6.0 to create the APIs with C# and EF as ORM and Inmemory data base to store data
-- Have used very simple onion architecture to keep things simple
+- Have used very simple onion architecture to keep things simple, and used Medaitor for simple commands and request handling.
 - I have two main types of projects here
     - PaymentTransaction : Mostly used to maintain all the merchants payment transaction for payment gateway, it also validates card details etc.
     - Mock Bank: Which authenticates if the card is valid or not
@@ -31,6 +31,7 @@ Processing a payment online involves multiple steps and entities:
   - Execute: Executing the payment with the all the details
   - Transaction by Id: Getting only one transaction by its Id
   - Merchants Transaction : Getting all the transactions of merchants.
+- For successfull transaction enter valid card number and for invalid you can put cards which ends with 05, 12, 14 etc it will provide different reason of failing.
 - SInce it already took more than 7 hours for me to implement i havent considered much of the bonus points although i did some logging, security, contanarization but nothing much fancy about it, I have tried to keep it simple
 - If I would have more time
   - Would like to create api for mock bank instead of calling directly its services
