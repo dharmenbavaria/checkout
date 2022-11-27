@@ -28,7 +28,7 @@ namespace Checkout.Custom.Mock.Bank.Service
             var transactionId = Guid.NewGuid();
             if (payload.Amount <= 0)
                 return new TransactionAuthResponse(
-                    transactionId: Guid.NewGuid(),
+                    transactionId: transactionId,
                     verified: false,
                     code: HttpStatusCode.NotAcceptable.ToString(),
                     description: "Amount not accepted"
@@ -61,10 +61,10 @@ namespace Checkout.Custom.Mock.Bank.Service
             }
 
             return new TransactionAuthResponse(
-                        Guid.NewGuid(),
-                        true,
-                        HttpStatusCode.ServiceUnavailable.ToString(),
-                        "The verification could not be performed"
+                        transactionId: transactionId,
+                        verified: true,
+                        code: HttpStatusCode.ServiceUnavailable.ToString(),
+                        description: "The verification could not be performed"
                     );
         }
     }
